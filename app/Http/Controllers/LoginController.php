@@ -72,7 +72,7 @@ class LoginController extends Controller
 
     public function sair(){
         session_destroy();
-        redirect()->route('Site.index');
+       return redirect()->route('Site.index');
     }
 
 

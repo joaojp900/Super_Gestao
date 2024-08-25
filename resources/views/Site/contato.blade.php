@@ -15,6 +15,7 @@
                     <li><a href="{{ route('Site.index') }}">Principal</a></li>
                     <li><a href="{{ route('Site.sobre') }}">Sobre Nós</a></li>
                     <li><a href="{{ route('Site.contato') }}">Contato</a></li>
+                    <li><a href="{{route('site.login')}}">Login</a></li>
                 </ul>
             </div>
         </div>

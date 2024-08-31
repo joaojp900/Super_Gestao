@@ -17,7 +17,7 @@
 
 <div class="informacao-pagina">
 
-    <div style="width: 30%; margin-left:auto; margin-right:auto;">
+    <div style="width: 30%; margin-left:auto; margin-right:auto; text-align:center;">
         <table border="1" style="text-align:left">
 
             <!--TUDO RODANDO AQUI-->

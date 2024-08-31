@@ -9,56 +9,59 @@ Este projeto consiste em um sistema de gestão desenvolvido em Laravel, que perm
 - MySQL ou outro banco de dados compatível.
 - Laravel 10.x ou superior.
 
- 3. Instalação
+3. Instalação
 
-3.1 Clonando o Repositório
-bash
+ 3.1 Clonando o Repositório
+```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
+```
 
-3.2 Instalando Dependências
-bash
+ 3.2 Instalando Dependências
+```bash
 composer install
+```
 
-3.3 Configuração do Banco de Dados
+ 3.3 Configuração do Banco de Dados
 1. Duplique o arquivo `.env.example` e renomeie para `.env`.
-
 2. Edite o arquivo `.env` com as configurações do seu banco de dados:
-   bash
+   ```bash
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
    DB_DATABASE=nome_do_banco
    DB_USERNAME=usuario
    DB_PASSWORD=senha
+   ```
 
 3.4 Gerando a Chave da Aplicação
-bash
+```bash
 php artisan key:generate
-
+```
 
 3.5 Executando as Migrações
-bash
+```bash
 php artisan migrate
-
+```
 
 3.6 Populando o Banco de Dados (Opcional)
-bsh
+```bash
 php artisan db:seed
+```
 
 3.7 Iniciando o Servidor de Desenvolvimento
-bash
+```bash
 php artisan serve
-
+```
 O sistema estará disponível em `http://localhost:8000`.
 
 4. Estrutura do Projeto
 
 4.1 Modelos (Models)
-- Cliente: Representa os clientes no sistema. Cada cliente possui informações básicas como nome e id.
-- Pedido: Representa os pedidos realizados pelos clientes. Contém dados como id do cliente e id do produto.
-- Produto: Representa os produtos disponíveis para venda. Contém informações como nome, descrição, preço e estoque.
-- Fornecedor: Representa os fornecedores que fornecem os produtos. Inclui dados como nome, email, site  e uf.
+- Clientes: Representa os clientes no sistema. Cada cliente possui informações básicas como nome do cliente.
+- Pedido: Representa os pedidos realizados pelos clientes. Contém dados do cliente.
+- Produto: Representa os produtos disponíveis para venda. Contém informações como nome, descrição, peso e estoque.
+- Fornecedor: Representa os fornecedores que fornecem os produtos. Inclui dados como nome, site, email, uf.
 
 4.2 Controladores (Controllers)
 - ClienteController: Responsável pelo CRUD de clientes.
@@ -68,43 +71,44 @@ O sistema estará disponível em `http://localhost:8000`.
 
 4.3 Migrações (Migrations)
 As migrações gerenciam a estrutura do banco de dados. Algumas das principais tabelas incluem:
-- Clientes: Armazena as informações dos clientes.
-- Pedidos: Armazena os detalhes dos pedidos.
-- Produtos: Armazena as informações dos produtos.
-- Fornecedors: Armazena os dados dos fornecedores.
+- `Cliente`: Armazena as informações dos clientes.
+- `Pedido`: Armazena os detalhes dos pedidos.
+- `Produto`: Armazena as informações dos produtos.
+- `Fornecedors`: Armazena os dados dos fornecedores.
 
 4.4 Rotas (Routes)
 As rotas do sistema estão definidas no arquivo `routes/web.php`. Algumas das rotas principais incluem:
-- /cliente: Gerencia todas as ações relacionadas aos clientes.
-- /pedido: Gerencia os pedidos.
-- /produto: Gerencia os produtos.
-- /fornecedor: Gerencia os fornecedores.
+- `/cliente`: Gerencia todas as ações relacionadas aos clientes.
+- `/pedido`: Gerencia os pedidos.
+- `/produto`: Gerencia os produtos.
+- `/fornecedor`: Gerencia os fornecedores.
 
 4.5 Vistas (Views)
 As vistas utilizam o Blade, o motor de templates do Laravel. Elas são organizadas de acordo com as pastas:
 - Cliente: Contém as vistas para listar, adicionar, editar e visualizar clientes.
 - Pedido: Vistas para gerenciamento de pedidos.
-- Produtos: Vistas para gerenciar os produtos.
+- Produto: Vistas para gerenciar os produtos.
 - Fornecedor: Vistas para gerenciar fornecedores.
 
 5. Funcionalidades Principais
 
 5.1 Gerenciamento de Clientes
-- Adicionar Cliente: Permite adicionar um novo cliente com informações como nome, e-mail e telefone.
+- Adicionar Cliente: Permite adicionar um novo cliente com informações como nome.
 - Editar Cliente: Atualiza as informações de um cliente existente.
+- Excluir Cliente: Remove um cliente do sistema.
 - Visualizar Clientes: Lista todos os clientes cadastrados.
 
 5.2 Gerenciamento de Pedidos
 - Criar Pedido: Adiciona um novo pedido vinculado a um cliente, com produtos selecionados.
 - Editar Pedido: Permite modificar um pedido existente.
 - Excluir Pedido: Remove um pedido do sistema.
-- Visualizar Pedidos: Lista todos os pedidos, com detalhes sobre cliente, produtos e quantidade. //Colocar quantidade
+- Visualizar Pedidos: Lista todos os pedidos, com detalhes sobre cliente, produtos e status.
 
 5.3 Gerenciamento de Produtos
 - Adicionar Produto: Insere um novo produto com informações detalhadas.
 - Editar Produto: Atualiza os dados de um produto.
 - Excluir Produto: Remove um produto do sistema.
-- Visualizar Produtos: Lista todos os produtos disponíveis, com detalhes como id, nome, descrição, peso e unidade de medida.
+- Visualizar Produtos: Lista todos os produtos disponíveis, com detalhes como id, peso,comprimento altura,largura, descrição e nome.
 
 5.4 Gerenciamento de Fornecedores
 - Adicionar Fornecedor: Cadastra um novo fornecedor.
@@ -129,20 +133,22 @@ Para a implantação em um servidor de produção:
 1. Configurar ambiente: Certifique-se de que o servidor tenha PHP, Composer e um banco de dados configurado.
 2. Configurar o ambiente: Atualize o arquivo `.env` com as configurações de produção.
 3. Otimizar o projeto:
-   bash
+   ```bash
    php artisan config:cache
    php artisan route:cache
    php artisan view:cache
    ```
 4. Configurar o servidor web: Aponte o servidor web (como Nginx ou Apache) para a pasta `public` do projeto.
 
- 9. Considerações Finais
+9. Considerações Finais
 
 Este projeto de sistema de gestão foi desenvolvido para ser flexível e escalável, permitindo futuras implementações como a adição de relatórios, integração com sistemas externos, ou até mesmo a personalização de funcionalidades específicas conforme as necessidades da empresa.
 
 
 
 Se houver necessidade de mais detalhes ou explicações sobre partes específicas do projeto, estou à disposição para ajudar!
+
+
 
 
 

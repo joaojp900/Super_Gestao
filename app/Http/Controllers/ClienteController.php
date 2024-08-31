@@ -58,24 +58,43 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Cliente $cliente)
     {
-        //
+         
+        return view('app.cliente.edit',['cliente' => $cliente]);
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Cliente $cliente)
     {
-        //
+        $regras = [
+            'nome' => 'required|min:3|max:50'
+        ];
+
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'nome.min' => 'O campo nome deve ter no mínimo 3 caracteres',
+            'nome.max' => 'O campo nome deve ter no máximo 50 caracteres'
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $request->all(); //Payload
+        $cliente->update($request->all());//instancia do Objeto
+        return redirect()->route('cliente.show', ['cliente' => $cliente->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(cliente $cliente)
     {
-        //
+        
+        $cliente->delete();
+
+        return redirect()->route('cliente.index');
     }
 }

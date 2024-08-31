@@ -6,7 +6,7 @@
  
 <div class="titulo-pagina-2">
     
-        <p>Adicionar Detalhes Produto</p>
+        <p>Adicionar Produtos Detalhes</p>
 </div>
 
 <div class="menu">

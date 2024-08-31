@@ -59,8 +59,9 @@ Route::resource('/produto', ProdutoController::class);
 //Produtos detalhes 
 Route::resource('produto-detalhe', ProdutoDetalheController::class);
 
-//Pedidos do cliente
+// cliente
 Route::resource('cliente', ClienteController::class);
+//Pedido
 Route::resource('pedido', PedidoController::class);
 //Route::resource('pedido-produto', ClienteController::class);
 Route::get('pedido-produto/create/{pedido}', [App\Http\Controllers\PedidoProdutoController::class,'create'])->name('pedido-produto.create');

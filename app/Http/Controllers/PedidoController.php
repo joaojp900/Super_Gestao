@@ -56,8 +56,9 @@ class PedidoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pedido $pedido)
+    public function show(Pedido $pedido,  )
     {
+       
         return view('app.pedido.show', ['pedido' => $pedido]);
     }
 

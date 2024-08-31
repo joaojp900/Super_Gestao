@@ -26,7 +26,7 @@ class ProdutoDetalheController extends Controller
     {
         $unidades = Unidade::all();
 
-        return View('produto_detalhe.create',['unidades' => $unidades]);
+        return View('produto-detalhe.create',['unidades' => $unidades]);
     }
 
     /**
@@ -51,7 +51,7 @@ class ProdutoDetalheController extends Controller
      */
     public function edit($id)
     {
-        $produtoDetalhe = ItemDetalhe::with(['item',])->find($id);
+        $produtoDetalhe = ItemDetalhe::with(['item'])->find($id);
 
         $unidades = Unidade::all();
          return view('produto_detalhe.edit', ['produto_detalhe' => $produtoDetalhe, 'unidades'=> $unidades]);

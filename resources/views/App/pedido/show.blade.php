@@ -34,6 +34,7 @@
                     <td>{{$produto->id}}</td>
                     <td>{{$produto->nome}}</td>
                     <td>{{$produto->pivot->created_at->format('d/m/y')}}</td>
+                    
                     <td>
                         <form id="form_{{$produto->pivot->id}}" method="POST" action="{{route('pedido-produto.destroy',['pedidoProduto' => $produto->pivot->id, 'pedido_id' => $pedido->id])}}"> 
                             @method('DELETE')
